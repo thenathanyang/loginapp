@@ -94,12 +94,14 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
+// If user not logged in, go to /users/login
+// Otherwise, if logged in, go to / (dashboard)
 router.post('/login',
   passport.authenticate('local', {successRedirect:'/', failureRedirect:'/users/login', failureFlash: true}),
   function(req, res) {
     // If this function gets called, authentication was successful.
     // `req.user` contains the authenticated user.
-    res.redirect('/');
+    res.redirect('/');		// Necessary?
   });
 
 router.get('/logout', function(req, res){
