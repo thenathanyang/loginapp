@@ -11,9 +11,10 @@ var LocalStrategy = require('passport-local').Strategy;
 var mongo = require('mongodb');
 var mongoose = require('mongoose');
 
-// Filesystem module
-var fs = require('fs');
+// File Upload
 var formidable = require('formidable');
+var fs = require('fs');
+var junk = require('junk');
 
 mongoose.connect('mongodb://localhost/loginapp');
 var db = mongoose.connection;

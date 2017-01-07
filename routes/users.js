@@ -39,7 +39,7 @@ router.post('/register', function(req, res){
 	if (errors)
 	{
 		res.render('register', {		// why just 'register' instead of 'users/register'?
-			errors:errors
+			errors: errors
 		});
 	}
 	else
@@ -80,7 +80,7 @@ passport.use(new LocalStrategy(
   			{
   				return done(null, false, {message: 'Invalid password'});
   			}
-  		})
+  		});
   	});
   }));
 

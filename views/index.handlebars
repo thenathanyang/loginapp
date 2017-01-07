@@ -1,12 +1,33 @@
 <h2 class="page-header">Dashboard</h2>
-<p id="welcomeMsg">Welcome to your dashboard</p>  
+<p id="welcome-msg">Welcome to your dashboard! Feel free to upload or download any of your files.</p>  
 
-<div class="panel panel-default">
-	<div class="panel-body">
-		<p><span class="glyphicon glyphicon-cloud-upload"></span> <b>File Uploader</b></p>		
-		<div class="progress">
-			<div class="progress-bar" role="progressbar"></div>
+<div class="row">
+	<div class="col-xs-12">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<h3 id="upload-title">File Uploader</h4>
+				<div class="progress">
+					<div class="progress-bar" role="progressbar"></div>
+				</div>
+				<button class="btn btn-lg upload-btn" type="button">Upload File</button>
+			</div>
 		</div>
-		<button class="btn btn-md upload-btn" type="button">Upload File</button>
 	</div>
 </div>
+
+<p>Please note if you upload a file, you must refresh the page in order for it to be listed in the "File Directory."</p>
+
+<hr>
+
+<h3>File Directory</h3>
+<ul>
+	{{#each fileNames}}
+		<li><a target="_blank" href="/uploads/{{this}}">{{this}}</a></li>
+	{{/each}}
+</ul>
+
+<input id="upload-input" type="file" name="uploads[]" multiple="multiple"></br>
+
+<script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script src="js/upload.js"></script>
