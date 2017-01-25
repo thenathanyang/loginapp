@@ -16,7 +16,7 @@ var formidable = require('formidable');
 var fs = require('fs');
 var junk = require('junk');
 
-mongoose.connect('mongodb://localhost/loginapp');
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/loginapp');
 var db = mongoose.connection;
 
 var routes = require('./routes/index');
@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Express Session
 app.use(session({
-    secret: 'secret',
+    secret: process.env.SESSION_SECRET || 'sadoir7jcpt8vq3y4tmoy4cp49qy3tv9p3j4tyf',
     saveUninitialized: true,
     resave: true
 }));
